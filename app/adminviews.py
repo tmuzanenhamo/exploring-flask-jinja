@@ -7,4 +7,4 @@ def admin_dashboard():
 
 @app.route("/admin/profile")
 def admin_profile():
-    return "Hello Admin"
+    return render_template("/admin/profile.html")

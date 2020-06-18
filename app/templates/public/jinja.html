@@ -1,0 +1,72 @@
+{%extends "/public/templates/public_template.html"%}
+
+{%import "macros/input_macros.html" as im%}
+
+{%block title%}{%endblock%}
+
+{%block main%}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h1>Jinja Stuff</h1>
+            <hr>
+            <h4>Variables</h4>
+            <p>Name: {{my_name}}</p>
+            <hr>
+            <h4>Looping with index</h4>
+            <hr>
+            {% for lang in langs%}
+            <ul>
+                <li>
+                    {{loop.index0}}: {{lang}}
+                </li>
+            </ul>
+            {%endfor %}
+            <hr>
+            <h4>Looping through a dict</h4>
+            {%for k,v in friends.items()%}
+            <hr>
+            <ul>
+                <li>
+                    {{k}}: {{v}}
+                </li>
+            </ul>
+            {%endfor%}
+            <hr>
+            <h4>Accessing class Attributes</h4>
+            <hr>
+            {{the_demo.year}}
+            <hr>
+            <h4>unpack Variables</h4>
+            <hr>
+            {% set a,b,c = occupation%}
+            <p>{{a}}</p>
+            <p>{{b}}</p>
+
+            <hr>
+            <h4>Call A function</h4>
+            <p>{{factorial(4)}}</p>
+            <hr>
+            <h4>Call a Class Method</h4>
+            <hr>
+            {{the_demo.where()}}
+
+            <hr>
+            <h4>Conditionals</h4>
+            {%if loved%}
+            <p>You are loved</p>
+            {%endif%}
+            
+            <hr>
+            <h4>Macros</h4>
+            <h5>Macros are like functions and they can e reused</h5>
+            {{im.input(label='Your Input', name='name', id='name', placeholder='Please Enter Something')}}
+            {{im.input(label='Age', type='number', name='age', id='age', placeholder='Please Enter Age')}}
+            {{im.input(label='Password', type='password',name='password', id='password', placeholder='Please Enter password')}}
+        </div>
+    </div>
+</div>
+
+
+{%endblock%}
