@@ -52,3 +52,4 @@ def jinja():
 @app.route("/about")
 def about():
     return render_template("/public/profile.html")
+    #Learnt cool stuff
